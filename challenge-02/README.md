@@ -23,13 +23,15 @@ Crie uma função que adicione um valor à variável criada acima, e retorne a s
 Onde VALOR é o novo valor da variável.
 */
 function mudanca() {
+     i = 25;
+     return 'o valor da variavel agora é ' + i;
           
 
 // Invoque a função criada acima.
-?
+mudanca();
 
 // Qual o retorno da função? (Use comentários de bloco).
-?
+o valor da variavel agora é 25
 
 /*
 Crie uma função com as seguintes características:
@@ -38,19 +40,26 @@ Crie uma função com as seguintes características:
     Preencha todos os valores corretamente!
 3. O retorno da função deve ser a multiplicação dos 3 argumentos, somando `2` ao resultado da multiplicação.
 */
-?
+function value(x, y, z) {
+      if(x === undefined || y === undefined || z === undefined){
+           return 'Preencha todos os valores corretamente';
+           }else {
+      return x * y * z + 2;
+      }
+    }  
+      
 
 // Invoque a função criada acima, passando só dois números como argumento.
-?
+value(2, 4);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
-?
+/*Preencha todos os valores corretament */
 
 // Agora invoque novamente a função criada acima, mas passando todos os três argumentos necessários.
-?
+value(2, 2, 2);
 
 // Qual o resultado da invocação acima? (Use comentários para mostrar o valor retornado).
-?
+10
 
 /*
 Crie uma função com as seguintes características:
@@ -61,7 +70,26 @@ Crie uma função com as seguintes características:
 5. Se nenhum argumento for passado, retorne o valor booleano `false`.
 6. E ainda, se nenhuma das condições acima forem atendidas, retorne `null`.
 */
-?
+function threevalue(x, y, s) {
+    if(x !== undefined && y === undefined && z === undefined){
+        return x;
+        }
+        else if(x !== undefined && y !== undefined && s === undefined) {
+           return x + y;
+        }
+        else if(x !== undefine && y !== undefined && s !== undefined)  {
+           return (x + y) / 3;
+        }            
+      
+        else if(x === undefine && y === undefined && s === undefined)  {
+              return false;
+        }
+    }             
+                 
+      else if(x !== undefine && y !== undefined && s !== undefined)  {
+           return (x + y) / 3;
+        }             
+              
 
 // Invoque a função acima utilizando todas as possibilidades (com nenhum argumento, com um, com dois e com três.) Coloque um comentário de linha ao lado da função com o resultado de cada invocação.
 ?
