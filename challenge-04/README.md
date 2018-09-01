@@ -166,23 +166,24 @@ carroObterCor('verde musgo');
 verde musgo
 
 // Qual a marca e modelo do carro?
-?
+    carro: marca: 'Fiat',
+    carro: modelo:'Bravo',
 
 // Adicione 2 pessoas no carro.
-?
+carro.adicionarPessoas(2);
 
 // Adicione mais 4 pessoas no carro.
-?
+carro.adicionarPessoas(4); // só cabem mais 3 pessoas
 
 // Faça o carro encher.
-?
+carro.adicionarPessoas(3)
 
 // Tire 4 pessoas do carro.
-?
+carro.adicionarPessoas(-4); // 'Ja temos 1 pessoa no carro'
 
 // Adicione 10 pessoas no carro.
-?
+carro.adicionarPessoas(10);//só cabem mais uma pessoa no carro
 
 // Quantas pessoas temos no carro?
-?
+1
 ```
