@@ -111,8 +111,21 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
-
+ carro.adicionarPessoas = function(numeroPessoas) {
+      var totalPessoas = carro.quantidadePessoas + numeroPessoas;  
+      if(carro.quantidadePessoas == carro.assentos){
+            return 'O carro ja esta lotado!'
+            }
+      if(totalPessoas > carro.Assentos) {
+            var quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
+            var pluralOuSingular = quantasPessoasCabem === 1 ? 'pessoa' : 'pessoas'
+            return 'Só cabem mais ' + quantaaPessoasCabem + pluralOuSingular;
+            }
+            
+      carro.quntidadePessoas += numeroPessoas;
+      return 'Já temos ' + carro.quantidadePessoas + ' pessoas no carro! ';
+      
+};
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
 utilize sempre o formato de invocação do método (ou chamada da propriedade),
@@ -121,19 +134,19 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-?
+carro.obterCor();
 
 // Mude a cor do carro para vermelho.
 ?
 
 // E agora, qual a cor do carro?
-?
+carroObterCor('vermelho');
 
 // Mude a cor do carro para verde musgo.
-?
+carroObterCor('verde musgo');
 
 // E agora, qual a cor do carro?
-?
+verde musgo
 
 // Qual a marca e modelo do carro?
 ?
