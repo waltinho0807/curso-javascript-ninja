@@ -1,3 +1,5 @@
+(function(win, doc){
+	'use strict';
 /*
 Vamos desenvolver mais um projeto. A ideia é fazer uma mini-calculadora.
 As regras são:
@@ -23,3 +25,76 @@ multiplicação (x), então no input deve aparecer "1+2x".
 input;
 - Ao pressionar o botão "CE", o input deve ficar zerado.
 */
+var $input = doc.querySelector('[data-js="visor"]');
+var $buttonsNumbers = doc.querySelectorAll('[data-js="button-number"]');
+var $buttonOperations = doc.querySelectorAll('[data-js="button-operation"]');
+var $buttonCE = doc.querySelector('[data-js="button-ce"]');
+var $buttonEqual = doc.querySelector('[data-js="button-equal"]')
+
+Array.prototype.forEach.call($buttonsNumbers, function(button){
+	button.addEventListener('click', handleClickNumber, false);
+
+})
+ Array.prototype.forEach.call($buttonOperations, function(button){
+ 	button.addEventListener('click', handleClickOperation, false);
+ })
+
+$buttonCE.addEventListener('click', handleClickCe, false);
+$buttonEqual.addEventListener('click', handleClickEqual, false);
+
+function handleClickNumber(event){
+	$input.value +=  this.value;
+}
+
+function handleClickCe(event){
+	$input.value = 0;
+}
+
+function handleClickOperation() {
+	$input.value = remove($input.value);
+	$input.value += this.value;
+}
+
+function isLastItemAnOperation(number) {
+    var operations = ['+', '-', 'x', '÷'];
+    var lastItem = number.split('').pop();
+
+    return operations.some(function(operator){
+    	return operator === lastItem;
+    })
+}
+
+function remove(number){
+	var operations = ['+', '-', 'x', '÷'];
+	if(isLastItemAnOperation(number))
+		return $input.value.slice(0, -1);
+	return number;
+}
+
+function handleClickEqual(){
+	$input.value = remove($input.value);
+	var allVallues = $input.value.match(/\d+[+-x÷]?/g);
+    $input.value = allVallues.reduce(function(accumulated, actual) {
+		var firstValue = accumulated.slice(0, -1);
+		var operator = accumulated.split('').pop();
+		var lastValue = isLastItemAnOperation(actual);
+		switch(operator){
+			case '+' :
+			   return Number(firstValue) + Number(lastValue); 
+			case '-' :
+			   return firstValue - lastValue;
+			case 'x' : 
+			   return firstValue * lastValue;
+			case '÷' :
+			   return firstValue / lastValue; 
+
+		}
+		
+          
+	});
+	
+}
+    
+
+
+})(window, document);
